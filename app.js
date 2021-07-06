@@ -10,7 +10,6 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
 
 app.get("*", (req, res) => {
   res.send("<h1>Welcome to CMS Server</h1>");
