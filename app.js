@@ -1,33 +1,26 @@
-const express = require("express")
-const bodyparser = require("body-parser")
-const cors = require("cors")
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const port = process.env.PORT;
-const dbHelper = require("./dbHelper/dbHelper.js")
-const userRoute = require('./module/user/userRoute')
+const dbHelper = require("./dbHelper/dbHelper.js");
+const userRoute = require("./module/user/userRoute");
 
-const app = express()
-
-app.use(cors())
-
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
 app.get("*", (req, res) => {
-    res.send("<h1>Welcome to CMS Server</h1>");
+  res.send("<h1>Welcome to CMS Server</h1>");
 });
 
-app.use("/users", userRoute)
+app.use("/users", userRoute);
 
-
-
-
-
-
-app.listen((port), (err) => {
-    if (err) {
-        console.log("server is not in listining mood!!")
-        return
-    }
-    console.log("server is in listning mood")
-    dbHelper.dbConnector()
-})
-
-
+app.listen(port, (err) => {
+  if (err) {
+    console.log("server is not in listining mood!!");
+    return;
+  }
+  console.log("server is in listning mood");
+  dbHelper.dbConnector();
+});

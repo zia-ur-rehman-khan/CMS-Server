@@ -1,21 +1,19 @@
 const usermodel = require("./userModel");
 
 module.exports.signpWithDetailes = (req, res) => {
-
-
-    console.log(req.body, "here is user detailes")
-    res.send({ status: true })
-    // usermodel
-    //     .createNewUser(req.body)
-    //     .then((user) => {
-    //         console.log(user);
-    //         res.send({ status: true, user: user });
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //         res.send({ status: false });
-    //     });
-    // console.log(req.body);
+  console.log(req.body, "here is user detailes");
+  res.send({ status: true });
+  // usermodel
+  //     .createNewUser(req.body)
+  //     .then((user) => {
+  //         console.log(user);
+  //         res.send({ status: true, user: user });
+  //     })
+  //     .catch((err) => {
+  //         console.log(err);
+  //         res.send({ status: false });
+  //     });
+  // console.log(req.body);
 };
 
 // module.exports.signinwithDetailes = (req, res) => {
