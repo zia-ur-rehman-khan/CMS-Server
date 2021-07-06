@@ -3,6 +3,7 @@ const bodyparser = require("body-parser")
 const cors = require("cors")
 const port = process.env.PORT;
 const dbHelper = require("./dbHelper/dbHelper.js")
+const userRoute = require('./module/user/userRoute')
 
 const app = express()
 
@@ -10,10 +11,10 @@ app.use(cors())
 
 
 app.get("*", (req, res) => {
-    res.send("<h1>Welcome to OLX Server</h1>");
+    res.send("<h1>Welcome to CMS Server</h1>");
 });
 
-
+app.use("/users", userRoute)
 
 
 
