@@ -1,7 +1,7 @@
 const express = require("express")
 const bodyparser = require("body-parser")
 const cors = require("cors")
-const port = process.env.PORT || 6000
+const port = process.env.PORT;
 const dbHelper = require("./dbHelper/dbHelper.js")
 
 const app = express()
