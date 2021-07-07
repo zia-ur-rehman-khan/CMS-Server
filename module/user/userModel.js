@@ -15,7 +15,7 @@ module.exports.createNewUser = (usersdetailes) => {
         let userinstance = new userModel(usersdetailes);
         userinstance.save((err, user) => {
             if (err) {
-                console.log(err, "error hai bhai");
+                console.log(err, "unabel to create new user");
                 return reject(err);
             }
             resolve(user);
