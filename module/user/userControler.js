@@ -51,3 +51,55 @@ module.exports.signinwithDetailes = (req, res) => {
       });
     });
 };
+
+
+
+module.exports.addStudentDetails = (req, res) => {
+  console.log(req.body)
+  let studentDetaile = {
+    $push: {
+      studentDetails: {
+        studentName: req.body,
+        dateOfBirth: req.body,
+        qualification: req.body
+      }
+    }
+  }
+
+  usermodel
+    .addStudentDetailsInDB({ _id: req.body.studentId }, studentDetaile)
+    .then((savedDetails) => {
+      console.log(savedDetails, 'student detailes add successfully')
+      res.send({ status: true, companyDetails: savedDetails });
+    })
+    .catch((err) => {
+      console.log(err, 'unable to add studentDetails in DB');
+      res.send({ status: false });
+    });
+}
+
+
+
+
+module.exports.addCompanyDetails = (req, res) => {
+  console.log(req.body)
+  let companyDetailes = {
+    $push: {
+      companyDetails: {
+        companyName: req.body.companyName,
+        companyDescription: req.body.companyDescription,
+      }
+    }
+  }
+
+  usermodel
+    .addCompanyDetailsInDB({ _id: req.body.companyId }, companyDetailes)
+    .then((savedDetails) => {
+      console.log(savedDetails, 'company detailes add successfully')
+      res.send({ status: true, companyDetails: savedDetails });
+    })
+    .catch((err) => {
+      console.log(err, 'unable to add companyDetails in DB');
+      res.send({ status: false });
+    });
+}
