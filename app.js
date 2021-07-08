@@ -5,6 +5,7 @@ const app = express()
 const port = process.env.PORT;
 const dbHelper = require("./dbHelper/dbHelper.js");
 const userRoute = require("./module/user/userRoute");
+const companyRoute = require("./module/company/companyRoute");
 
 app.use(cors());
 
@@ -16,6 +17,7 @@ app.get("*", (req, res) => {
 });
 
 app.use("/users", userRoute);
+app.use("/company", companyRoute);
 
 app.listen(port, (err) => {
   if (err) {
