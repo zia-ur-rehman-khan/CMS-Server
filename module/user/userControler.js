@@ -16,38 +16,38 @@ module.exports.signpWithDetailes = (req, res) => {
   // console.log(req.body);
 };
 
-// module.exports.signinwithDetailes = (req, res) => {
-//     let userdetailes = req.body;
-//     console.log(userdetailes);
+module.exports.signinwithDetailes = (req, res) => {
+  let userdetailes = req.body;
+  console.log(userdetailes);
 
-//     usermodel
-//         .getUserByQueiry({
-//             email: req.body.email,
-//         })
-//         .then((user) => {
-//             if (!user) {
-//                 res.send({
-//                     status: false,
-//                     errMessage: "No user found with matching email ID",
-//                 });
-//             }
-//             if (user.password !== userdetailes.password) {
-//                 res.send({
-//                     status: false,
-//                     errMessage: "Invalid Password",
-//                 });
-//                 return;
-//             }
-//             res.send({ status: true, found: true, user: user });
+  usermodel
+    .getUserByQueiry({
+      email: req.body.email,
+    })
+    .then((user) => {
+      if (!user) {
+        res.send({
+          status: false,
+          errMessage: "No user found with matching email ID",
+        });
+      }
+      if (user.password !== userdetailes.password) {
+        res.send({
+          status: false,
+          errMessage: "Invalid Password",
+        });
+        return;
+      }
+      res.send({ status: true, found: true, user: user });
 
-//         })
-//         .catch((err) => {
-//             console.log("Unable to find user ID");
-//             console.log(err);
-//             res.send({
-//                 status: false,
-//                 errMessage: err,
-//                 found: false,
-//             });
-//         });
-// };
+    })
+    .catch((err) => {
+      console.log("Unable to find user ID");
+      console.log(err);
+      res.send({
+        status: false,
+        errMessage: err,
+        found: false,
+      });
+    });
+};

@@ -28,7 +28,7 @@ module.exports.getUserByQueiry = (queiry) => {
     return new Promise((resolve, reject) => {
         userModel.findOne(queiry, (err, user) => {
             if (err) {
-                console.log(err, "error hai bhai");
+                console.log(err, "Unable to find user");
                 return reject(err);
             }
             resolve(user);
