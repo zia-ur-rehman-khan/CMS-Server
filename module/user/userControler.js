@@ -58,12 +58,12 @@ module.exports.addStudentDetails = (req, res) => {
   console.log(req.body)
   let studentDetaile = {
     $push: {
-      studentDetails: req.body
+      studentDetails: req.body.studentDetails
     }
   }
 
   usermodel
-    .addStudentDetailsInDB({ _id: req.body.studentId }, studentDetaile)
+    .addStudentDetailsInDB({ _id: req.body._id }, studentDetaile)
     .then((savedDetails) => {
       console.log(savedDetails, 'student detailes add successfully')
       res.send({ status: true, companyDetails: savedDetails });
