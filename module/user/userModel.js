@@ -47,7 +47,7 @@ module.exports.getUserByQueiry = (queiry) => {
 
 
 
-module.exports.addStudentDetails = (query, studentDetailes) => {
+module.exports.addStudentDetailsInDB = (query, studentDetailes) => {
     return new Promise((resolve, reject) => {
         userModel.updateOne(query, studentDetailes)
             .then(savedDetails => {
