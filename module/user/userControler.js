@@ -57,7 +57,7 @@ module.exports.signinwithDetailes = (req, res) => {
 module.exports.addStudentDetails = (req, res) => {
   console.log(req.body)
   let studentDetaile = {
-    $push: {
+    $set: {
       studentDetails: req.body.studentDetails
     }
   }
