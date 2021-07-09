@@ -58,11 +58,7 @@ module.exports.addStudentDetails = (req, res) => {
   console.log(req.body)
   let studentDetaile = {
     $push: {
-      studentDetails: {
-        studentName: req.body,
-        dateOfBirth: req.body,
-        qualification: req.body
-      }
+      studentDetails: req.body
     }
   }
 
