@@ -75,8 +75,8 @@ module.exports.getUserByID = (req, res) => {
 
 
 module.exports.addStudentDetails = (req, res) => {
-  console.log(req.body._id)
-  console.log(req.body.studentDetails)
+  // console.log(req.body._id)
+  // console.log(req.body.studentDetails)
   let studentDetaile = {
     $set: {
       studentDetails: req.body.studentDetails
@@ -87,7 +87,7 @@ module.exports.addStudentDetails = (req, res) => {
     .addStudentDetailsInDB({ _id: req.body._id }, studentDetaile)
     .then((savedDetails) => {
       console.log(savedDetails, 'student detailes add successfully')
-      res.send({ status: true, studentDetails: savedDetails });
+      res.send({ status: true, studentDetails: req.body.studentDetails });
     })
     .catch((err) => {
       console.log(err, 'unable to add studentDetails in DB');
@@ -99,8 +99,8 @@ module.exports.addStudentDetails = (req, res) => {
 
 
 module.exports.addCompanyDetails = (req, res) => {
-  console.log(req.body, '>>>>>>>>>>>>>')
-  console.log(req.body)
+  // console.log(req.body, '>>>>>>>>>>>>>')
+  // console.log(req.body)
   let companyDetailes = {
     $set: {
       companyDetails: req.body.companyDetails
@@ -111,7 +111,7 @@ module.exports.addCompanyDetails = (req, res) => {
     .addCompanyDetailsInDB({ _id: req.body._id }, companyDetailes)
     .then((savedDetails) => {
       console.log(savedDetails, 'company detailes add successfully')
-      res.send({ status: true, companyDetails: savedDetails });
+      res.send({ status: true, companyDetails: req.body.companyDetails });
     })
     .catch((err) => {
       console.log(err, 'unable to add companyDetails in DB');
