@@ -55,7 +55,8 @@ module.exports.signinwithDetailes = (req, res) => {
 
 
 module.exports.addStudentDetails = (req, res) => {
-  console.log(req.body)
+  console.log(req.body._id)
+  console.log(req.body.studentDetails)
   let studentDetaile = {
     $set: {
       studentDetails: req.body.studentDetails
