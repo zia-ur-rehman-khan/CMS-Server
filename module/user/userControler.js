@@ -51,6 +51,26 @@ module.exports.signinwithDetailes = (req, res) => {
       });
     });
 };
+module.exports.getUserByID = (req, res) => {
+
+  usermodel
+    .getUserByQueiry({
+      _id: req.body._id,
+    })
+    .then((user) => {
+      res.send({ status: true, found: true, user: user });
+
+    })
+    .catch((err) => {
+      console.log("Unable to find user ID");
+      console.log(err);
+      res.send({
+        status: false,
+        errMessage: err,
+        found: false,
+      });
+    });
+};
 
 
 

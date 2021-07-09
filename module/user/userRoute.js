@@ -5,6 +5,7 @@ const userControler = require("./userControler")
 
 router.post("/signup", userControler.signpWithDetailes)
 router.post("/signin", userControler.signinwithDetailes)
+router.post("/get-user-by-id", userControler.getUserByID)
 router.post("/add-student-detailes", userControler.addStudentDetails)
 router.post("/add-company-detailes", userControler.addCompanyDetails)
 
