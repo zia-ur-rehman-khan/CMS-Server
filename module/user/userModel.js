@@ -61,7 +61,7 @@ module.exports.addStudentDetailsInDB = (query, studentDetailes) => {
     })
 };
 
-module.exports.addCompanyDetails = (query, companyDetailes) => {
+module.exports.addCompanyDetailsInDB = (query, companyDetailes) => {
     return new Promise((resolve, reject) => {
         userModel.updateOne(query, companyDetailes)
             .then(savedDetails => {
