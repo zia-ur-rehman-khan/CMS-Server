@@ -81,15 +81,12 @@ module.exports.addCompanyDetails = (req, res) => {
   console.log(req.body)
   let companyDetailes = {
     $set: {
-      companyDetails: {
-        companyName: req.body.companyName,
-        companyDescription: req.body.companyDescription,
-      }
+      companyDetails: req.body.companyDetails
     }
   }
 
   usermodel
-    .addCompanyDetailsInDB({ _id: req.body.companyId }, companyDetailes)
+    .addCompanyDetailsInDB({ _id: req.body._id }, companyDetailes)
     .then((savedDetails) => {
       console.log(savedDetails, 'company detailes add successfully')
       res.send({ status: true, companyDetails: savedDetails });
