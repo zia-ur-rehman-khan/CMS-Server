@@ -1,4 +1,3 @@
-const { stripIgnoredCharacters } = require("graphql");
 let mongoose = require("mongoose");
 
 const companySchema = new mongoose.Schema({
