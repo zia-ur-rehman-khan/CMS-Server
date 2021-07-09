@@ -66,7 +66,7 @@ module.exports.addStudentDetails = (req, res) => {
     .addStudentDetailsInDB({ _id: req.body._id }, studentDetaile)
     .then((savedDetails) => {
       console.log(savedDetails, 'student detailes add successfully')
-      res.send({ status: true, companyDetails: savedDetails });
+      res.send({ status: true, studentDetails: savedDetails });
     })
     .catch((err) => {
       console.log(err, 'unable to add studentDetails in DB');
@@ -80,7 +80,7 @@ module.exports.addStudentDetails = (req, res) => {
 module.exports.addCompanyDetails = (req, res) => {
   console.log(req.body)
   let companyDetailes = {
-    $push: {
+    $set: {
       companyDetails: {
         companyName: req.body.companyName,
         companyDescription: req.body.companyDescription,
