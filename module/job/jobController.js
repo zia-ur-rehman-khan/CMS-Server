@@ -19,9 +19,9 @@ module.exports.getAllJob = (req, res) => {
     console.log(req.body + '>>>>>>>>>>>>')
     jobModel
         .getAllJobInDb({})
-        .then((jobDetils) => {
-            console.log(jobDetils, "jobs found successfully");
-            res.send({ status: true, jobDetils: jobDetils });
+        .then((jobDetails) => {
+            console.log(jobDetails, "jobs found successfully");
+            res.send({ status: true, jobDetails: jobDetails });
         })
         .catch((err) => {
             console.log(err);
