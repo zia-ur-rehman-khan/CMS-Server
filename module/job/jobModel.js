@@ -31,9 +31,9 @@ module.exports.addNewJobInDB = (jobDetailes) => {
         });
     });
 };
-module.exports.getAllJobInDb = () => {
+module.exports.getAllJobInDb = (query) => {
     return new Promise((resolve, reject) => {
-        jobModel.find({}, (err, jobs) => {
+        jobModel.find(query, (err, jobs) => {
             if (err) {
                 console.log(err, "Unable to get all jobs");
                 return reject(err);

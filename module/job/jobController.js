@@ -18,7 +18,7 @@ module.exports.addNewJob = (req, res) => {
 module.exports.getAllJob = (req, res) => {
     console.log(req.body + '>>>>>>>>>>>>')
     jobModel
-        .getAllJobInDb()
+        .getAllJobInDb({})
         .then((jobDetils) => {
             console.log(jobDetils, "jobs found successfully");
             res.send({ status: true, jobDetils: jobDetils });
