@@ -43,7 +43,10 @@ module.exports.userApplyInJob = (req, res) => {
         .then(appliedUser => {
             console.log(appliedUser + "User Apply Successfuly")
             res.send({
-                status: true, appliedUser: appliedUser
+                status: true, appliedUser: {
+                    userId: req.body.userId,
+                    userName: req.body.userName,
+                }
             })
         })
         .catch(err => {
