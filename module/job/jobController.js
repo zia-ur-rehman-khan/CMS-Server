@@ -34,12 +34,12 @@ module.exports.userApplyInJob = (req, res) => {
     let updates = {
         $push: {
             appliedUsers: {
-                userId: '',
-                userName: '',
+                userId: req.body.userId,
+                userName: req.body.userName,
             }
         }
     }
-    jobModel.userApplyOnJob({ _id: req.body.bookId }, updates)
+    jobModel.userApplyOnJob({ _id: req.body.jobId }, updates)
         .then(appliedUser => {
             console.log(appliedUser + "User Apply Successfuly")
             res.send({
