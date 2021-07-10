@@ -99,8 +99,6 @@ module.exports.addStudentDetails = (req, res) => {
 
 
 module.exports.addCompanyDetails = (req, res) => {
-  // console.log(req.body, '>>>>>>>>>>>>>')
-  // console.log(req.body)
   let companyDetailes = {
     $set: {
       companyDetails: req.body.companyDetails
