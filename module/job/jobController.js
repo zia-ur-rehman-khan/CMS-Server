@@ -15,6 +15,21 @@ module.exports.addNewJob = (req, res) => {
 };
 
 
+module.exports.deleteJobById = (req, res) => {
+    console.log(req.body + '>>>>>>>>>>>>')
+    jobModel
+        .deleteJobById({ _id: req.body })
+        .then((companyDetails) => {
+            console.log(companyDetails, "company details delete succesfully");
+            res.send({ status: true, companyDetails: companyDetails });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send({ status: false });
+        });
+};
+
+
 module.exports.getAllJob = (req, res) => {
     console.log(req.body + '>>>>>>>>>>>>')
     jobModel

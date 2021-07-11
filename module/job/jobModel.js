@@ -31,6 +31,7 @@ module.exports.addNewJobInDB = (jobDetailes) => {
         });
     });
 };
+
 module.exports.getAllJobInDb = (query) => {
     return new Promise((resolve, reject) => {
         jobModel.find(query, (err, jobs) => {
@@ -53,5 +54,18 @@ module.exports.userApplyOnJob = (query, update) => {
             .catch(err => {
                 reject(err);
             })
+    });
+};
+
+
+module.exports.deleteJobById = (jobId) => {
+    return new Promise((resolve, reject) => {
+        jobModel.deleteOne(jobId, (err, deleteJob) => {
+            if (err) {
+                console.log(err, "unabel to delete job");
+                return reject(err);
+            }
+            resolve(deleteJob);
+        });
     });
 };
